@@ -1,0 +1,39 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "rev:cursed_corpse",
+			"min_engine_version": "1.8.0",
+			"materials": {
+				"default": "skeleton"
+			},
+			"textures": {
+				"default": "textures/entity/skeleton/skeleton"
+			},
+			"geometry": {
+				"default": "geometry.skeleton.v1.8"
+			},
+			"spawn_egg": {
+				"texture": "spawn_egg",
+				"texture_index": 9
+			},
+			"scripts": {
+				"animate": [
+					{
+						"exist": "query.health<100"
+					}
+				],
+				"pre_animation": [
+					"variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+				]
+			},
+			"animations": {
+				"exist": "animation.cursed_corpse.exist"
+			},
+			"render_controllers": [
+				"controller.render.skeleton"
+			],
+			"enable_attachables": true
+		}
+	}
+}

@@ -1,0 +1,83 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rev:obo_fireball_high",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"runtime_identifier": "snowball",
+			"is_experimental": false
+		},
+		"component_groups": {
+			"rev:explode": {
+				"minecraft:explode": {
+					"fuse_length": 0,
+					"fuse_lit": true,
+					"power": 2,
+					"breaks_blocks": false,
+					"causes_fire": true,
+					"destroy_affected_by_griefing": true
+				}
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0.5,
+				"height": 0.5
+			},
+			"minecraft:type_family": {
+				"family": [
+					"projectile"
+				]
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"impact_damage": {
+						"damage": 25,
+						"knockback": true,
+						"catch_fire": true,
+						"semi_random_diff_damage": false
+					},
+					"catch_fire": {
+						"fire_affected_by_griefing": true
+					},
+					"remove_on_hit": {}
+				},
+				"anchor": 1,
+				"power": 4,
+				"gravity": 0,
+				"angle_offset": 0
+			},
+			"minecraft:scale": {
+				"value": 1
+			},
+			"minecraft:timer": {
+				"time": 4,
+				"time_down_event": {
+					"event": "rev:die"
+				}
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			}
+		},
+		"events": {
+			"rev:die": {
+				"add": {
+					"component_groups": [
+						"rev:explode"
+					]
+				}
+			},
+			"rev:hit": {
+				"add": {
+					"component_groups": [
+						"rev:explode"
+					]
+				}
+			}
+		}
+	}
+}

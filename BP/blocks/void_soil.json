@@ -1,0 +1,18 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "rev:void_soil"
+		},
+		"components": {
+			"minecraft:block_light_emission": 0.8,
+			"minecraft:destroy_time": 9999999,
+			"minecraft:breathability": "solid",
+			"minecraft:explosion_resistance": 100,
+			"minecraft:flammable": {
+				"flame_odds": 2,
+				"burn_odds": 0
+			}
+		}
+	}
+}

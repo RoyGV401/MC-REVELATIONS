@@ -1,0 +1,272 @@
+{
+	"entity_sounds": {
+		"entities": {
+			"rev:detached": {
+				"events": {
+					"death": {
+						"pitch": [
+							0.8,
+							1.0
+						],
+						"sound": "mob.husk.death",
+						"volume": 2
+					},
+					"ambient": {
+						"pitch": [
+							0.8,
+							1.0
+						],
+						"sound": "mob.husk.ambient",
+						"volume": 2
+					},
+					"hurt": {
+						"pitch": [
+							0.8,
+							1.0
+						],
+						"sound": "mob.husk.hurt",
+						"volume": 2
+					}
+				},
+				"volume": 2
+			},
+			"rev:detached_head": {
+				"events": {
+					"death": {
+						"pitch": [
+							0.7,
+							0.9
+						],
+						"sound": "mob.husk.death",
+						"volume": 2
+					},
+					"ambient": {
+						"pitch": [
+							0.7,
+							0.9
+						],
+						"sound": "mob.husk.ambient",
+						"volume": 2
+					},
+					"hurt": {
+						"pitch": [
+							0.7,
+							0.9
+						],
+						"sound": "mob.husk.hurt",
+						"volume": 2
+					}
+				},
+				"volume": 2
+			},
+			"rev:spitter": {
+				"events": {
+					"death": {
+						"pitch": [
+							0.7,
+							0.9
+						],
+						"sound": "mob.creeper.death",
+						"volume": 2
+					},
+					"ambient": {
+						"pitch": [
+							0.7,
+							0.9
+						],
+						"sound": "mob.creeper.say",
+						"volume": 2
+					},
+					"hurt": {
+						"pitch": [
+							0.7,
+							0.9
+						],
+						"sound": "rev.fx.spitter_hurt",
+						"volume": 2
+					}
+				},
+				"volume": 2
+			},
+			"rev:detached_body": {
+				"events": {
+					"death": {
+						"pitch": [
+							0.4,
+							0.6
+						],
+						"sound": "rev.fx.bleeding_damage",
+						"volume": 2
+					},
+					"ambient": {
+						"pitch": [
+							0.7,
+							0.9
+						],
+						"sound": "rev.fx.concussion_damage",
+						"volume": 2
+					},
+					"hurt": {
+						"pitch": [
+							1.2,
+							1.3
+						],
+						"sound": "rev.fx.bleeding_damage",
+						"volume": 2
+					}
+				},
+				"volume": 2
+			},
+			"rev:red_dusk_cultist": {
+				"events": {
+					"death": {
+						"pitch": [
+							0.9,
+							0.8
+						],
+						"sound": "rev.fx.bleeding_damage",
+						"volume": 0.3
+					},
+					"hurt": "rev.fx.human_damage"
+				},
+				"pitch": [
+					0.9,
+					0.8
+				],
+				"volume": 0.7
+			},
+			"rev:bisectoid": {
+				"events": {
+					"death": {
+						"pitch": [
+							0.6,
+							0.7
+						],
+						"sound": "mob.husk.death",
+						"volume": 2
+					},
+					"ambient": {
+						"pitch": [
+							0.7,
+							0.8
+						],
+						"sound": "mob.husk.ambient",
+						"volume": 2
+					},
+					"hurt": {
+						"pitch": [
+							0.5,
+							0.6
+						],
+						"sound": "mob.husk.hurt",
+						"volume": 2
+					}
+				},
+				"volume": 2
+			},
+			"rev:eyeless": {
+				"events": {
+					"death": {
+						"pitch": [
+							0.6,
+							0.7
+						],
+						"sound": "mob.villager.death",
+						"volume": 2
+					},
+					"ambient": {
+						"pitch": [
+							0.7,
+							0.8
+						],
+						"sound": "mob.villager.no",
+						"volume": 2
+					},
+					"hurt": {
+						"pitch": [
+							0.5,
+							0.6
+						],
+						"sound": "mob.villager.hit",
+						"volume": 2
+					}
+				},
+				"volume": 2
+			},
+			"rev:iron_brotherhood_warrior": {
+				"events": {
+					"death": {
+						"pitch": [
+							0.9,
+							0.8
+						],
+						"sound": "rev.fx.bleeding_damage",
+						"volume": 0.3
+					},
+					"hurt": "rev.fx.human_damage"
+				},
+				"pitch": [
+					0.9,
+					0.8
+				],
+				"volume": 0.7
+			},
+			"rev:iron_brotherhood_knight": {
+				"events": {
+					"death": {
+						"pitch": [
+							0.9,
+							0.8
+						],
+						"sound": "rev.fx.bleeding_damage",
+						"volume": 0.3
+					},
+					"hurt": "rev.fx.human_damage"
+				},
+				"pitch": [
+					0.9,
+					0.8
+				],
+				"volume": 0.7
+			},
+			"rev:iron_brotherhood_recruit": {
+				"events": {
+					"death": {
+						"pitch": [
+							0.9,
+							0.8
+						],
+						"sound": "rev.fx.bleeding_damage",
+						"volume": 0.3
+					},
+					"hurt": "rev.fx.human_damage"
+				},
+				"pitch": [
+					0.9,
+					0.8
+				],
+				"volume": 0.7
+			},
+			"rev:cursed_corpse": {
+				"events": {
+					"ambient": "mob.cursed_corpse.say",
+					"death": "mob.cursed_corpse.death",
+					"hurt": "mob.cursed_corpse.say",
+					"step": {
+						"pitch": [
+							0.2,
+							0.3
+						],
+						"sound": "mob.cursed_corpse.step",
+						"volume": 0.1
+					}
+				},
+				"pitch": [
+					0.1,
+					0.2
+				],
+				"volume": 2
+			}
+		}
+	}
+}

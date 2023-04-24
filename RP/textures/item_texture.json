@@ -1,0 +1,168 @@
+{
+	"resource_pack_name": "Revelations",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"rev_red_dusk_hood_helmet": {
+			"textures": "textures/items/red_dusk_hood_helmet"
+		},
+		"rev_chorus_mortis_piece": {
+			"textures": "textures/items/chorus_mortis_piece"
+		},
+		"rev_chorus_mortis_loaded": {
+			"textures": "textures/items/chorus_mortis"
+		},
+		"rev_red_dusk_dagger": {
+			"textures": "textures/items/red_dusk_dagger"
+		},
+		"rev_book_of_enlightenment": {
+			"textures": "textures/items/book_of_enlightenment"
+		},
+		"rev_bandages": {
+			"textures": "textures/items/bandage"
+		},
+		"rev_ded": {
+			"textures": "textures/items/grass_top"
+		},
+		"rev_soul_harvester": {
+			"textures": "textures/items/soul_harvester"
+		},
+		"rev_feather": {
+			"textures": "textures/items/obo_feather_spell"
+		},
+		"rev_ice": {
+			"textures": "textures/items/obo_ice_spell"
+		},
+		"rev_air": {
+			"textures": "textures/items/obo_air_spell"
+		},
+		"rev_fire": {
+			"textures": "textures/entity/cursed_fire"
+		},
+		"rev_restoration": {
+			"textures": "textures/items/obo_restoration_spell"
+		},
+		"rev_bonus": {
+			"textures": "textures/items/obo_bonus_spell"
+		},
+		"rev_haste": {
+			"textures": "textures/items/obo_haste_spell"
+		},
+		"rev_cursed_dagger": {
+			"textures": "textures/items/cursed_dagger"
+		},
+		"rev_red_dusk_clothes_leggings": {
+			"textures": "textures/items/red_dusk_clothes_leggings"
+		},
+		"rev_red_dusk_clothes_boots": {
+			"textures": "textures/items/red_dusk_clothes_boots"
+		},
+		"rev_red_candle": {
+			"textures": "textures/items/red_candle"
+		},
+		"rev_suspicious_meat": {
+			"textures": "textures/items/suspicious_meat"
+		},
+		"rev_cooked_suspicious_meat": {
+			"textures": "textures/items/cooked_suspicious_meat"
+		},
+		"rev_jupier_orb": {
+			"textures": "textures/items/jupiter_orb"
+		},
+		"rev_iron_brotherhood_recruit_helmet": {
+			"textures": "textures/items/iron_brotherhood_recruit_helmet"
+		},
+		"rev_iron_brotherhood_recruit_chestplate": {
+			"textures": "textures/items/iron_brotherhood_recruit_chestplate"
+		},
+		"rev_iron_brotherhood_recruit_leggings": {
+			"textures": "textures/items/iron_brotherhood_recruit_leggings"
+		},
+		"rev_iron_brotherhood_recruit_boots": {
+			"textures": "textures/items/iron_brotherhood_recruit_boots"
+		},
+		"rev_iron_brotherhood_arrow": {
+			"textures": "textures/items/iron_brotherhood_arrow"
+		},
+		"rev_iron_brotherhood_champion_bow": {
+			"textures": "textures/items/iron_brotherhood_champion_bow"
+		},
+		"rev_iron_brotherhood_warrior_helmet": {
+			"textures": "textures/items/iron_brotherhood_warrior_helmet"
+		},
+		"rev_iron_brotherhood_warrior_chestplate": {
+			"textures": "textures/items/iron_brotherhood_warrior_chestplate"
+		},
+		"rev_iron_brotherhood_warrior_leggings": {
+			"textures": "textures/items/iron_brotherhood_warrior_leggings"
+		},
+		"rev_iron_brotherhood_warrior_boots": {
+			"textures": "textures/items/iron_brotherhood_warrior_boots"
+		},
+		"rev_iron_brotherhood_knight_helmet": {
+			"textures": "textures/items/iron_brotherhood_knight_helmet"
+		},
+		"rev_iron_brotherhood_knight_chestplate": {
+			"textures": "textures/items/iron_brotherhood_knight_chestplate"
+		},
+		"rev_iron_brotherhood_knight_leggings": {
+			"textures": "textures/items/iron_brotherhood_knight_leggings"
+		},
+		"rev_iron_brotherhood_knight_boots": {
+			"textures": "textures/items/iron_brotherhood_knight_boots"
+		},
+		"rev_test_shooter": {
+			"textures": "textures/items/test_shooter"
+		},
+		"rev_iron_brotherhood_sword": {
+			"textures": "textures/items/iron_brotherhood_sword"
+		},
+		"rev_iron_brotherhood_mace": {
+			"textures": "textures/items/iron_brotherhood_mace"
+		},
+		"rev_iron_brotherhood_special_arrow": {
+			"textures": "textures/items/iron_brotherhood_special_arrow_item"
+		},
+		"rev_iron_brotherhood_flag": {
+			"textures": "textures/items/rev_flag"
+		},
+		"rev_iron_brotherhood_knight_ranged_helmet": {
+			"textures": "textures/items/iron_brotherhood_knight_ranged_helmet"
+		},
+		"rev_iron_brotherhood_knight_ranged_chestplate": {
+			"textures": "textures/items/iron_brotherhood_knight_ranged_chestplate"
+		},
+		"rev_iron_brotherhood_knight_ranged_leggings": {
+			"textures": "textures/items/iron_brotherhood_knight_ranged_leggings"
+		},
+		"rev_iron_brotherhood_knight_ranged_boots": {
+			"textures": "textures/items/iron_brotherhood_knight_ranged_boots"
+		},
+		"rev_iron_brotherhood_mage_helmet": {
+			"textures": "textures/items/iron_brotherhood_mage_helmet"
+		},
+		"rev_iron_brotherhood_mage_chestplate": {
+			"textures": "textures/items/iron_brotherhood_mage_chestplate"
+		},
+		"rev_iron_brotherhood_mage_boots": {
+			"textures": "textures/items/iron_brotherhood_mage_boots"
+		},
+		"rev_anima_lens": {
+			"textures": "textures/items/anima_lens"
+		},
+		"rev_bounty": {
+			"textures": "textures/items/bounty"
+		},
+		"rev_glass_helmet": {
+			"textures": "textures/items/glass_helmet"
+		},
+		"rev_glass_chestplate": {
+			"textures": "textures/items/glass_chestplate"
+		},
+		"rev_glass_leggings": {
+			"textures": "textures/items/glass_leggings"
+		},
+		"rev_glass_boots": {
+			"textures": "textures/items/glass_boots"
+		}
+	}
+}

@@ -1,0 +1,88 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "rev:health_bonus_spell_high",
+			"category": "equipment"
+		},
+		"components": {
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:hand_equipped": false,
+			"minecraft:icon": {
+				"texture": "rev_bonus"
+			},
+			"minecraft:on_use": {
+				"on_use": {
+					"event": "rev:fire"
+				}
+			},
+			"minecraft:cooldown": {
+				"category": "magic",
+				"duration": 0.5
+			},
+			"minecraft:display_name": {
+				"value": "Hechizo de Bonificacion de Salud (Alto)"
+			},
+			"minecraft:render_offsets": {
+				"main_hand": {
+					"third_person": {
+						"scale": [
+							0,
+							0,
+							0
+						]
+					},
+					"first_person": {
+						"scale": [
+							0.02,
+							0.02,
+							0.02
+						]
+					}
+				}
+			},
+			"minecraft:max_stack_size": 1
+		},
+		"events": {
+			"rev:fire": {
+				"sequence": [
+					{
+						"condition": "query.scoreboard('anima')==-1",
+						"swing": {},
+						"run_command": {
+							"command": [
+								"/scoreboard players add @s anima 11",
+								"/particle rev:health_bonus_spell",
+								"/effect @s health_boost 120 4 true",
+								"/effect @s absorption 120 1 true",
+								"/playsound rev.magic_other @a ~~~"
+							]
+						}
+					},
+					{
+						"condition": "query.scoreboard('anima')<=20 && query.scoreboard('anima')>=0",
+						"swing": {},
+						"run_command": {
+							"command": [
+								"/scoreboard players add @s anima 10",
+								"/particle rev:health_bonus_spell",
+								"/effect @s health_boost 120 4 true",
+								"/effect @s absorption 120 1 true",
+								"/playsound rev.magic_other @a ~~~"
+							]
+						}
+					},
+					{
+						"condition": "query.scoreboard('anima')>20",
+						"swing": {},
+						"run_command": {
+							"command": [
+								"/playsound rev.magic_fail @a ~~~"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"num_mip_levels": 4,
+	"padding": 8,
+	"resource_pack_name": "Revelations",
+	"texture_name": "atlas.terrain",
+	"texture_data": {
+		"rev_maus_loader": {
+			"textures": "textures/blocks/maus_loader"
+		},
+		"rev_bounty_board_used": {
+			"textures": "textures/blocks/bounty_board_used"
+		},
+		"rev_void_soil": {
+			"textures": "textures/blocks/limbo_soil"
+		},
+		"rev_bounty_board": {
+			"textures": "textures/blocks/bounty_board"
+		}
+	}
+}

@@ -1,0 +1,88 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rev:revenant_attack",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"runtime_identifier": "snowball",
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0.01,
+				"height": 0.01
+			},
+			"minecraft:type_family": {
+				"family": [
+					"projectile"
+				]
+			},
+			"minecraft:projectile": {
+				"on_hit": {
+					"impact_damage": {
+						"damage": 10,
+						"knockback": false
+					},
+					"definition_event": {
+						"event_trigger": {
+							"event": "rev:hit"
+						}
+					},
+					"particle_on_hit": {
+						"particle_type": "explode",
+						"num_particles": 30,
+						"on_entity_hit": true,
+						"on_other_hit": true
+					}
+				},
+				"anchor": 1,
+				"power": 0.6,
+				"gravity": 0,
+				"angle_offset": 0
+			},
+			"minecraft:scale": {
+				"value": 4
+			},
+			"minecraft:timer": {
+				"time": 4,
+				"time_down_event": {
+					"event": "rev:die"
+				}
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"run_command": {
+					"command": [
+						"/playsound mob.ghast.fireball @a ~ ~ ~ 1 0.5"
+					]
+				}
+			},
+			"rev:die": {
+				"run_command": {
+					"command": [
+						"kill @s"
+					]
+				}
+			},
+			"rev:hit": {
+				"randomize": [
+					{
+						"weight": 2,
+						"run_command": {
+							"command": [
+								"kill @s"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

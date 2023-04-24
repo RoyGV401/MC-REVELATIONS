@@ -1,0 +1,16 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "rev:anima_lens",
+			"category": "nature"
+		},
+		"components": {
+			"minecraft:foil": true,
+			"minecraft:allow_off_hand": true,
+			"minecraft:icon": {
+				"texture": "rev_anima_lens"
+			}
+		}
+	}
+}

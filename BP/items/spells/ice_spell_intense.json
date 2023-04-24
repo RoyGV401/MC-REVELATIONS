@@ -1,0 +1,92 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "rev:ice_spell_intense",
+			"category": "equipment"
+		},
+		"components": {
+			"minecraft:can_destroy_in_creative": false,
+			"minecraft:hand_equipped": false,
+			"minecraft:icon": {
+				"texture": "rev_ice"
+			},
+			"minecraft:on_use": {
+				"on_use": {
+					"event": "rev:fire"
+				}
+			},
+			"minecraft:cooldown": {
+				"category": "magic",
+				"duration": 4
+			},
+			"minecraft:display_name": {
+				"value": "Tormento de Legovia"
+			},
+			"minecraft:render_offsets": {
+				"main_hand": {
+					"third_person": {
+						"scale": [
+							0,
+							0,
+							0
+						]
+					},
+					"first_person": {
+						"scale": [
+							0.02,
+							0.02,
+							0.02
+						]
+					}
+				}
+			},
+			"minecraft:max_stack_size": 1
+		},
+		"events": {
+			"rev:fire": {
+				"sequence": [
+					{
+						"condition": "query.scoreboard('anima')==-1",
+						"shoot": {
+							"projectile": "rev:obo_iceball_intense",
+							"launch_power": 1
+						},
+						"swing": {},
+						"run_command": {
+							"command": [
+								"/scoreboard players add @s anima 21",
+								"/playsound rev.magic_ice @a ~~~",
+								"/particle rev:sea_strider"
+							]
+						}
+					},
+					{
+						"condition": "query.scoreboard('anima')<=10 && query.scoreboard('anima')>=0",
+						"shoot": {
+							"projectile": "rev:obo_iceball_intense",
+							"launch_power": 1
+						},
+						"swing": {},
+						"run_command": {
+							"command": [
+								"/scoreboard players add @s anima 20",
+								"/playsound rev.magic_ice @a ~~~",
+								"/particle rev:sea_strider"
+							]
+						}
+					},
+					{
+						"condition": "query.scoreboard('anima')>10",
+						"swing": {},
+						"run_command": {
+							"command": [
+								"/playsound rev.magic_fail @a ~~~"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

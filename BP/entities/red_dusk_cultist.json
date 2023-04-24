@@ -1,0 +1,1068 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rev:red_dusk_cultist",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"rev:agressive": {
+				"minecraft:behavior.nearest_attackable_target": {
+					"priority": 2,
+					"within_radius": 25,
+					"reselect_targets": true,
+					"entity_types": [
+						{
+							"filters": {
+								"any_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "iron_brotherhood"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "snowgolem"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "irongolem"
+									}
+								]
+							},
+							"max_dist": 35
+						}
+					],
+					"must_see": true,
+					"must_see_forget_duration": 17
+				}
+			},
+			"rev:scared": {
+				"minecraft:behavior.avoid_mob_type": {
+					"entity_types": "player"
+				}
+			},
+			"rev:crossbow": {
+				"minecraft:behavior.ranged_attack": {
+					"attack_interval": 3,
+					"attack_radius": 20,
+					"burst_shots": 3,
+					"burst_interval": 2,
+					"priority": 3,
+					"target_in_sight_time": 1
+				},
+				"minecraft:shooter": {
+					"aux_val": 0,
+					"def": "fireworks_rocket"
+				}
+			},
+			"rev:bow": {
+				"minecraft:behavior.ranged_attack": {
+					"attack_interval": 3,
+					"attack_radius": 20,
+					"burst_shots": 3,
+					"burst_interval": 0.4,
+					"priority": 3,
+					"target_in_sight_time": 1
+				},
+				"minecraft:shooter": {
+					"aux_val": 0,
+					"def": "arrow"
+				}
+			},
+			"rev:red_candle": {
+				"minecraft:on_death": {
+					"event": "rev:red_candle_dissapear"
+				},
+				"minecraft:behavior.ranged_attack": {
+					"attack_interval": 3,
+					"attack_radius": 20,
+					"burst_shots": 2,
+					"burst_interval": 2,
+					"priority": 3,
+					"target_in_sight_time": 1
+				},
+				"minecraft:shooter": {
+					"aux_val": 0,
+					"def": "rev:red_candle_projectile"
+				}
+			},
+			"rev:sword": {
+				"minecraft:behavior.melee_attack": {
+					"priority": 3,
+					"speed_multiplier": 1,
+					"track_target": false
+				}
+			},
+			"rev:necromancer": {},
+			"villager_skin_1": {
+				"minecraft:skin_id": {
+					"value": 1
+				}
+			},
+			"villager_skin_2": {
+				"minecraft:skin_id": {
+					"value": 2
+				}
+			},
+			"villager_skin_3": {
+				"minecraft:skin_id": {
+					"value": 3
+				}
+			},
+			"villager_skin_4": {
+				"minecraft:skin_id": {
+					"value": 4
+				}
+			},
+			"villager_skin_5": {
+				"minecraft:skin_id": {
+					"value": 5
+				}
+			},
+			"villager_skin_6": {
+				"minecraft:skin_id": {
+					"value": 6
+				}
+			},
+			"villager_skin_7": {
+				"minecraft:skin_id": {
+					"value": 7
+				}
+			},
+			"villager_skin_8": {
+				"minecraft:skin_id": {
+					"value": 8
+				}
+			},
+			"villager_skin_9": {
+				"minecraft:skin_id": {
+					"value": 9
+				}
+			},
+			"villager_skin_10": {
+				"minecraft:skin_id": {
+					"value": 10
+				}
+			},
+			"villager_skin_11": {
+				"minecraft:skin_id": {
+					"value": 11
+				}
+			},
+			"villager_skin_12": {
+				"minecraft:skin_id": {
+					"value": 12
+				}
+			},
+			"villager_skin_13": {
+				"minecraft:skin_id": {
+					"value": 13
+				}
+			},
+			"villager_skin_14": {
+				"minecraft:skin_id": {
+					"value": 14
+				}
+			},
+			"villager_skin_15": {
+				"minecraft:skin_id": {
+					"value": 15
+				}
+			},
+			"villager_skin_16": {
+				"minecraft:skin_id": {
+					"value": 16
+				}
+			},
+			"villager_skin_17": {
+				"minecraft:skin_id": {
+					"value": 17
+				}
+			},
+			"villager_skin_18": {
+				"minecraft:skin_id": {
+					"value": 18
+				}
+			},
+			"villager_skin_19": {
+				"minecraft:skin_id": {
+					"value": 19
+				}
+			},
+			"villager_skin_20": {
+				"minecraft:skin_id": {
+					"value": 20
+				}
+			},
+			"villager_skin_21": {
+				"minecraft:skin_id": {
+					"value": 21
+				}
+			},
+			"villager_skin_22": {
+				"minecraft:skin_id": {
+					"value": 22
+				}
+			},
+			"villager_skin_23": {
+				"minecraft:skin_id": {
+					"value": 23
+				}
+			},
+			"villager_skin_24": {
+				"minecraft:skin_id": {
+					"value": 24
+				}
+			},
+			"villager_skin_25": {
+				"minecraft:skin_id": {
+					"value": 25
+				}
+			},
+			"villager_skin_26": {
+				"minecraft:skin_id": {
+					"value": 26
+				}
+			},
+			"villager_skin_27": {
+				"minecraft:skin_id": {
+					"value": 27
+				}
+			},
+			"villager_skin_28": {
+				"minecraft:skin_id": {
+					"value": 28
+				}
+			},
+			"villager_skin_29": {
+				"minecraft:skin_id": {
+					"value": 29
+				}
+			},
+			"villager_skin_30": {
+				"minecraft:skin_id": {
+					"value": 30
+				}
+			},
+			"villager_skin_31": {
+				"minecraft:skin_id": {
+					"value": 31
+				}
+			},
+			"villager_skin_32": {
+				"minecraft:skin_id": {
+					"value": 32
+				}
+			},
+			"villager_skin_33": {
+				"minecraft:skin_id": {
+					"value": 33
+				}
+			},
+			"villager_skin_34": {
+				"minecraft:skin_id": {
+					"value": 34
+				}
+			},
+			"villager_skin_35": {
+				"minecraft:skin_id": {
+					"value": 35
+				}
+			},
+			"villager_skin_36": {
+				"minecraft:skin_id": {
+					"value": 36
+				}
+			},
+			"villager_skin_37": {
+				"minecraft:skin_id": {
+					"value": 37
+				}
+			},
+			"villager_skin_38": {
+				"minecraft:skin_id": {
+					"value": 38
+				}
+			},
+			"villager_skin_39": {
+				"minecraft:skin_id": {
+					"value": 39
+				}
+			},
+			"villager_skin_40": {
+				"minecraft:skin_id": {
+					"value": 40
+				}
+			},
+			"villager_skin_41": {
+				"minecraft:skin_id": {
+					"value": 41
+				}
+			},
+			"villager_skin_42": {
+				"minecraft:skin_id": {
+					"value": 42
+				}
+			},
+			"villager_skin_43": {
+				"minecraft:skin_id": {
+					"value": 43
+				}
+			},
+			"villager_skin_44": {
+				"minecraft:skin_id": {
+					"value": 44
+				}
+			},
+			"rev:movement_1": {
+				"minecraft:movement": {
+					"value": 0.3
+				}
+			},
+			"rev:movement_2": {
+				"minecraft:movement": {
+					"value": 0.25
+				}
+			},
+			"rev:movement_3": {
+				"minecraft:movement": {
+					"value": 0.4
+				}
+			},
+			"rev:movement_4": {
+				"minecraft:movement": {
+					"value": 0.5
+				}
+			},
+			"rev:red_dusk_cultist_adult": {
+				"minecraft:rideable": {
+					"seat_count": 1,
+					"family_types": [
+						"red_dusk_cultist"
+					],
+					"seats": {
+						"position": [
+							0,
+							1.1,
+							-0.35
+						],
+						"lock_rider_rotation": 0
+					}
+				},
+				"minecraft:behavior.mount_pathing": {
+					"priority": 2,
+					"speed_multiplier": 1.25,
+					"target_dist": 0,
+					"track_target": true
+				}
+			},
+			"rev:red_dusk_cultist_jockey": {
+				"minecraft:behavior.find_mount": {
+					"priority": 1,
+					"within_radius": 16
+				}
+			}
+		},
+		"components": {
+			"minecraft:nameable": {},
+			"minecraft:type_family": {
+				"family": [
+					"red_dusk_cultist"
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"on_damage": {
+							"filters": {
+								"test": "is_family",
+								"subject": "other",
+								"value": "red_dusk_cultist"
+							}
+						},
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.9
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:navigation.walk": {
+				"is_amphibious": true,
+				"can_pass_doors": true,
+				"can_walk": true,
+				"can_break_doors": true
+			},
+			"minecraft:annotation.break_door": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:health": {
+				"value": 20,
+				"max": 20
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0,
+				"breathes_air": true,
+				"breathes_water": true
+			},
+			"minecraft:attack": {
+				"damage": 3
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/red_dusk_cultist.json"
+			},
+			"minecraft:behavior.stomp_turtle_egg": {
+				"priority": 4,
+				"speed_multiplier": 1,
+				"search_range": 10,
+				"search_height": 3,
+				"goal_radius": 1.14,
+				"search_count": 4,
+				"interval": 20
+			},
+			"minecraft:behavior.move_towards_restriction": {
+				"priority": 5,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 6,
+				"probability": 0.02
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 7
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			}
+		},
+		"events": {
+			"rev:red_candle_dissapear": {
+				"run_command": {
+					"command": "/replaceitem entity @s slot.weapon.mainhand 0 air"
+				}
+			},
+			"minecraft:entity_spawned": {
+				"sequence": [
+					{
+						"sequence": [
+							{
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.armor.legs 0 rev:red_dusk_clothes_leggings",
+										"/replaceitem entity @s slot.armor.feet 0 rev:red_dusk_clothes_boots",
+										"/replaceitem entity @s slot.armor.head 0 rev:red_dusk_hood_helmet"
+									]
+								}
+							},
+							{
+								"randomize": [
+									{
+										"weight": 3,
+										"run_command": {
+											"command": [
+												"/replaceitem entity @s slot.weapon.mainhand 0 stone_sword"
+											]
+										},
+										"add": {
+											"component_groups": [
+												"rev:agressive",
+												"rev:sword"
+											]
+										}
+									},
+									{
+										"weight": 3,
+										"run_command": {
+											"command": [
+												"/replaceitem entity @s slot.weapon.mainhand 0 rev:red_dusk_dagger"
+											]
+										},
+										"add": {
+											"component_groups": [
+												"rev:agressive",
+												"rev:sword"
+											]
+										}
+									},
+									{
+										"weight": 1,
+										"run_command": {
+											"command": [
+												"/replaceitem entity @s slot.weapon.mainhand 0 diamond_sword",
+												"/replaceitem entity @s slot.armor.feet 0 iron_boots",
+												"/replaceitem entity @s slot.armor.chest 0 diamond_chestplate"
+											]
+										},
+										"add": {
+											"component_groups": [
+												"rev:agressive",
+												"rev:sword"
+											]
+										}
+									},
+									{
+										"weight": 2,
+										"run_command": {
+											"command": [
+												"/replaceitem entity @s slot.weapon.mainhand 0 iron_sword",
+												"/replaceitem entity @s slot.armor.feet 0 iron_boots",
+												"/replaceitem entity @s slot.armor.chest 0 iron_chestplate"
+											]
+										},
+										"add": {
+											"component_groups": [
+												"rev:agressive",
+												"rev:sword"
+											]
+										}
+									},
+									{
+										"weight": 3,
+										"run_command": {
+											"command": [
+												"/replaceitem entity @s slot.weapon.mainhand 0 iron_axe",
+												"/replaceitem entity @s slot.armor.feet 0 iron_boots",
+												"/effect @s resistance 100000 2 true",
+												"/replaceitem entity @s slot.armor.chest 0 iron_chestplate"
+											]
+										},
+										"add": {
+											"component_groups": [
+												"rev:agressive",
+												"rev:sword"
+											]
+										}
+									},
+									{
+										"weight": 3,
+										"run_command": {
+											"command": [
+												"/replaceitem entity @s slot.weapon.mainhand 0 bow"
+											]
+										},
+										"add": {
+											"component_groups": [
+												"rev:agressive",
+												"rev:bow"
+											]
+										}
+									},
+									{
+										"weight": 3,
+										"run_command": {
+											"command": [
+												"/replaceitem entity @s slot.weapon.mainhand 0 rev:red_candle_item"
+											]
+										},
+										"add": {
+											"component_groups": [
+												"rev:agressive",
+												"rev:red_candle"
+											]
+										}
+									},
+									{
+										"weight": 1,
+										"run_command": {
+											"command": [
+												"/replaceitem entity @s slot.armor.head 0 rev:red_dusk_hood_helmet"
+											]
+										},
+										"add": {
+											"component_groups": [
+												"rev:scared"
+											]
+										}
+									}
+								]
+							}
+						]
+					},
+					{
+						"add": {
+							"component_groups": [
+								"rev:red_dusk_cultist_adult"
+							]
+						}
+					},
+					{
+						"filters": {
+							"test": "has_component",
+							"operator": "!=",
+							"value": "minecraft:skin_id"
+						},
+						"randomize": [
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_0"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_1"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_2"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_3"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_4"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_5"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_6"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_7"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_8"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_9"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_10"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_11"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_12"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_13"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_14"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_15"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_16"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_17"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_18"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_19"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_20"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_21"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_22"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_23"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_24"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_25"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_26"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_27"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_28"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_29"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_30"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_31"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_32"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_33"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_34"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_35"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_36"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_37"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_38"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_39"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_40"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_41"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_42"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_43"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_44"
+									]
+								}
+							}
+						]
+					},
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"rev:movement_1"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"rev:movement_2"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"rev:movement_3"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"rev:movement_4"
+									]
+								}
+							}
+						]
+					},
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s fire_aspect",
+										"/enchant @s flame"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s sharpness 4",
+										"/enchant @s power 4"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s knockback 2",
+										"/enchant @s punch 2"
+									]
+								}
+							},
+							{
+								"weight": 3
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+}

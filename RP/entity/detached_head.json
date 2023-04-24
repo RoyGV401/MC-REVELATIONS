@@ -1,0 +1,54 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "rev:detached_head",
+			"materials": {
+				"default": "zombie"
+			},
+			"textures": {
+				"default": "textures/entity/detached"
+			},
+			"geometry": {
+				"default": "geometry.detached"
+			},
+			"spawn_egg": {
+				"base_color": "#000000",
+				"overlay_color": "#ABABAB"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+					"variable.tcos1 = -variable.tcos0;",
+					"variable.is_crossbow_user = q.get_equipped_item_name('main_hand') == 'crossbow' && query.has_target==true;",
+					"variable.is_bow_user = q.get_equipped_item_name('main_hand') == 'bow' && query.has_target==true || q.get_equipped_item_name('main_hand') == 'iron_brotherhood_champion_bow' && query.has_target==true;",
+					"variable.is_sword_user = q.get_equipped_item_name('main_hand') == 'stone_sword' && query.has_target==true || q.get_equipped_item_name('main_hand') == 'iron_brotherhood_mace' && query.has_target==true;",
+					"variable.is_iron_sword_user = q.get_equipped_item_name('main_hand') == 'iron_brotherhood_sword' && query.has_target==true;",
+					"variable.is_iron_sword_and_shield_user = q.get_equipped_item_name('off_hand') == 'shield' && query.has_target==true;",
+					"variable.attack_body_rot_y = Math.sin(Math.sqrt(variable.attack_time) * 360.0) * 11.46;",
+					"variable.cos_attack_body_rot_y = Math.cos(variable.attack_body_rot_y);",
+					"variable.sin_attack_body_rot_y = Math.sin(variable.attack_body_rot_y);",
+					"variable.internal_swim_pos = Math.mod(query.modified_distance_moved, 26.0);",
+					"variable.attack = Math.sin((1.0 - (1.0 - variable.attack_time) * (1.0 - variable.attack_time)) * 180.0) * 57.3;",
+					"variable.attack2 = Math.sin(variable.attack_time * 180.0) * 57.3;",
+					"variable.z_bob = Math.cos(query.life_time * 103.13244) * 2.865 + 2.865;",
+					"variable.x_bob = Math.sin(query.life_time * 76.776372) * 2.865;"
+				],
+				"animate": [
+					"exist",
+					"loot_at_target_controller"
+				]
+			},
+			"animations": {
+				"look_at_target": "animation.humanoid.look_at_target.default",
+				"loot_at_target_controller": "controller.animation.humanoid.look_at_target",
+				"exist": "animation.detached.head",
+				"move": "animation.eyeless.move"
+			},
+			"enable_attachables": false,
+			"render_controllers": [
+				"controller.render.zombie"
+			]
+		}
+	}
+}

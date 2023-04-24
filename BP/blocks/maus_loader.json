@@ -1,0 +1,63 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "rev:maus_loader"
+		},
+		"components": {
+			"minecraft:destroy_time": 10000,
+			"minecraft:explosion_resistance": 10000,
+			"minecraft:map_color": "#ffffff"
+		},
+		"events": {
+			"rev:load_rooms": {
+				"randomize": [
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"/setblock ~ ~ ~ polished_blackstone",
+								"/execute if block ~1 ~ ~-30 air 0 run structure load mystructure:maus_room_1 ~1~~-30"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"/setblock ~ ~ ~ polished_blackstone"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"/setblock ~ ~ ~ polished_blackstone",
+								"/execute if block ~1 ~ ~-30 air 0 run structure load mystructure:maus_room_2 ~1~~-30"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"/setblock ~ ~ ~ polished_blackstone",
+								"/execute if block ~1 ~ ~-30 air 0 run structure load mystructure:maus_room_3 ~1~~-30"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"/setblock ~ ~ ~ polished_blackstone",
+								"/execute if block ~1 ~ ~-30 air 0 run structure load mystructure:maus_base ~1~~-30"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

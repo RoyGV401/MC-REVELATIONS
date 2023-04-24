@@ -1,0 +1,14 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "rev:chorus_mortis_piece",
+			"category": "nature"
+		},
+		"components": {
+			"minecraft:icon": {
+				"texture": "rev_chorus_mortis_piece"
+			}
+		}
+	}
+}

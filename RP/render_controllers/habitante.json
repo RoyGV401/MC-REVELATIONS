@@ -1,0 +1,89 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.habitant": {
+			"arrays": {
+				"textures": {
+					"Array.skins": [
+						"Texture.base",
+						"Texture.base2",
+						"Texture.base3",
+						"Texture.base4",
+						"Texture.base5",
+						"Texture.base6",
+						"Texture.base7",
+						"Texture.base8",
+						"Texture.base9",
+						"Texture.base10",
+						"Texture.base11",
+						"Texture.base12",
+						"Texture.base13",
+						"Texture.base14",
+						"Texture.base15",
+						"Texture.base16",
+						"Texture.base17",
+						"Texture.base18",
+						"Texture.base19",
+						"Texture.base20",
+						"Texture.base21",
+						"Texture.base22",
+						"Texture.base23",
+						"Texture.base24",
+						"Texture.base25",
+						"Texture.base26",
+						"Texture.base27",
+						"Texture.base28",
+						"Texture.base29",
+						"Texture.base30",
+						"Texture.base31",
+						"Texture.base32",
+						"Texture.base33",
+						"Texture.base34",
+						"Texture.base35",
+						"Texture.base36",
+						"Texture.base37",
+						"Texture.base38",
+						"Texture.base39",
+						"Texture.base40",
+						"Texture.base41",
+						"Texture.base42",
+						"Texture.base43",
+						"Texture.base44"
+					]
+				}
+			},
+			"geometry": "geometry.default",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+			"textures": [
+				"array.skins[query.skin_id]"
+			]
+		},
+		"controller.render.legovian": {
+			"arrays": {
+				"textures": {
+					"Array.skins": [
+						"Texture.base",
+						"Texture.base2",
+						"Texture.base3",
+						"Texture.base4",
+						"Texture.base5",
+						"Texture.base6"
+					]
+				}
+			},
+			"geometry": "geometry.default",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+			"textures": [
+				"array.skins[query.skin_id]"
+			]
+		}
+	}
+}

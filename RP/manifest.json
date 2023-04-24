@@ -1,0 +1,42 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"roy"
+		],
+		"generated_with": {
+			"bridge": [
+				"2.6.0"
+			],
+			"dash": [
+				"0.10.8"
+			]
+		}
+	},
+	"header": {
+		"name": "Minecraft Revelations Alpha",
+		"description": "In alpha",
+		"min_engine_version": [
+			1,
+			19,
+			50
+		],
+		"uuid": "b426323e-b882-408e-9978-3c24f6403682",
+		"version": [
+			1,
+			0,
+			0
+		]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "579f7bd1-b468-4d5a-b0dc-66cd9d991da7",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	]
+}

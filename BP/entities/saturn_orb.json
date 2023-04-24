@@ -1,0 +1,94 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "rev:saturn_orb_entity",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "runtime_identifier": "snowball",
+            "is_experimental": false
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "width": 0.01,
+                "height": 0.01
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "projectile"
+                ]
+            },
+            "minecraft:projectile": {
+                "on_hit": {
+                    "impact_damage": {
+                        "damage": 3,
+                        "destroy_on_hit": false,
+                        "knockback": false
+                    },
+                    "definition_event": {
+                        "event_trigger": {
+                            "event": "rev:hit"
+                        }
+                    },
+                    "particle_on_hit": {
+                        "particle_type": "explode",
+                        "num_particles": 30,
+                        "on_entity_hit": true,
+                        "on_other_hit": true
+                    }
+                },
+                "reflect_on_hurt": true,
+                "destroy_on_hurt": false,
+                "anchor": 1,
+                "power": 0.4,
+                "gravity": 0,
+                "angle_offset": 0
+            },
+            "minecraft:scale": {
+                "value": 5
+            },
+            "minecraft:timer": {
+                "time": 0.05,
+                "time_down_event": {
+                    "event": "rev:die"
+                }
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "run_command": {
+                    "command": [
+                        "/playsound rev.fx.jupiter_orb @a ~ ~ ~"
+                    ]
+                }
+            },
+            "rev:die": {
+                "run_command": {
+                    "command": [
+                        "/tag @a remove jupiter_i",
+                        "/playsound rev.fx.jupiter_orb @a ~ ~ ~ 0.7 2",
+                        "/particle rev:fire ~ ~ ~",
+                        "/kill @s"
+                    ]
+                }
+            },
+            "rev:hit": {
+                "randomize": [
+                    {
+                        "weight": 2,
+                        "run_command": {
+                            "command": [
+                                "/playsound beacon.activate @a ~ ~ ~ 0.5"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

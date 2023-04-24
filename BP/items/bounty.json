@@ -1,0 +1,37 @@
+{
+	"format_version": "1.19.60",
+	"minecraft:item": {
+		"description": {
+			"identifier": "rev:bounty",
+			"category": "nature"
+		},
+		"events": {
+			"rev:use": {
+				"swing": {},
+				"run_command": {
+					"command": [
+						"/tag @s add get_bounty",
+						"/tag @s add has_bounty",
+						"/playsound rev.fx.bounty_start @p ~ ~ ~",
+						"/playsound item.book.page_turn @a ~ ~ ~"
+					]
+				},
+				"decrement_stack": {}
+			}
+		},
+		"components": {
+			"minecraft:cooldown": {
+				"category": "bounty",
+				"duration": 10
+			},
+			"minecraft:on_use": {
+				"on_use": {
+					"event": "rev:use"
+				}
+			},
+			"minecraft:icon": {
+				"texture": "rev_bounty"
+			}
+		}
+	}
+}

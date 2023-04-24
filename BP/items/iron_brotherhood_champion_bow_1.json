@@ -1,0 +1,86 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "rev:iron_brotherhood_champion_bow",
+			"category": "nature"
+		},
+		"events": {
+			"rev:bow": {
+				"run_command": {
+					"command": [
+						"/playanimation @s animation.rev_humanoid.bow_player animation.rev_humanoid.idle 0.2"
+					]
+				}
+			}
+		},
+		"components": {
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.equipment"
+			},
+			"minecraft:icon": {
+				"texture": "rev_iron_brotherhood_champion_bow"
+			},
+			"minecraft:enchantable": {
+				"slot": "bow",
+				"value": 20
+			},
+			"minecraft:durability": {
+				"max_durability": 200,
+				"damage_chance": {
+					"min": 1,
+					"max": 2
+				}
+			},
+			"minecraft:hand_equipped": true,
+			"minecraft:max_stack_size": 1,
+			"minecraft:use_duration": 7.0,
+			"minecraft:on_use": {
+				"on_use": {
+					"event": "rev:bow"
+				}
+			},
+			"minecraft:shooter": {
+				"ammunition": [
+					{
+						"item": "rev:iron_brotherhood_arrow",
+						"search_inventory": true
+					},
+					{
+						"item": "rev:iron_brotherhood_special_arrow",
+						"search_inventory": true
+					}
+				],
+				"charge_on_draw": false,
+				"launch_power_scale": 6.0,
+				"min_draw_duration": 1.0,
+				"max_draw_duration": 4.0,
+				"max_launch_power": 40.0,
+				"scale_power_by_draw_duration": true
+			},
+			"minecraft:render_offsets": {
+				"main_hand": {
+					"first_person": {
+						"scale": [
+							0.025,
+							0.025,
+							0.025
+						]
+					},
+					"third_person": {
+						"position": [
+							0.57,
+							0.65,
+							-1.3
+						],
+						"scale": [
+							0.1,
+							0.04,
+							0.1
+						]
+					}
+				}
+			}
+		}
+	}
+}

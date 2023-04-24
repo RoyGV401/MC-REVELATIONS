@@ -1,0 +1,67 @@
+{
+	"format_version": "1.19.20",
+	"minecraft:item": {
+		"description": {
+			"identifier": "rev:test_shooter",
+			"category": "equipment"
+		},
+		"components": {
+			"minecraft:creative_category": {
+				"parent": "itemGroup.name.equipment"
+			},
+			"minecraft:max_stack_size": 1,
+			"minecraft:use_duration": 5.0,
+			"minecraft:cooldown": {
+				"duration": 0.0,
+				"category": "shotgun"
+			},
+			"minecraft:use_animation": "bow",
+			"minecraft:icon": {
+				"texture": "rev_test_shooter"
+			},
+			"minecraft:chargeable": {
+				"movement_modifier": 2,
+				"on_completed": {
+					"event": "rev:pig"
+				}
+			},
+			"minecraft:on_use": {
+				"on_use": {
+					"event": "rev:idk",
+					"target": "self"
+				}
+			},
+			"minecraft:hand_equipped": false
+		},
+		"events": {
+			"rev:idk": {
+				"run_command": {
+					"command": [
+						"/title @p[tag=jodidazo] title estas jodidazo",
+						"/tag @s add jodidazo"
+					],
+					"target": "self"
+				}
+			},
+			"rev:pig": {
+				"run_command": {
+					"command": "/summon pig"
+				}
+			},
+			"shotgun": {
+				"sequence": [
+					{
+						"run_command": {
+							"command": [
+								"/execute as @s[tag=use_1] run summon pig",
+								"/tag @s[tag=use_1] remove use_1",
+								"/tag @s[tag=!use_1] add use_1"
+							],
+							"target": "holder"
+						}
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,172 @@
+{
+	"format_version": "1.14.0",
+	"sound_definitions": {
+		"mob.cursed_corpse.death": {
+			"__use_legacy_max_distance": "true",
+			"category": "hostile",
+			"sounds": [
+				"sounds/mob/spider/death"
+			]
+		},
+		"rev.fx.magic_ambient_1": {
+			"__use_legacy_max_distance": "true",
+			"category": "random",
+			"sounds": [
+				"sounds/rev_magic_ambient_1"
+			]
+		},
+		"rev.fx.bounty_start": {
+			"__use_legacy_max_distance": "true",
+			"category": "random",
+			"sounds": [
+				"sounds/bounty_start"
+			]
+		},
+		"rev.fx.jupiter_orb": {
+			"__use_legacy_max_distance": "true",
+			"category": "random",
+			"sounds": [
+				"sounds/jupiter_orb"
+			]
+		},
+		"rev.fx.spitting": {
+			"category": "hostile",
+			"sounds": [
+				"sounds/spitting"
+			]
+		},
+		"rev.fx.spitter_hurt": {
+			"category": "hostile",
+			"sounds": [
+				"sounds/spitter_hurt"
+			]
+		},
+		"rev.magic_fail": {
+			"category": "player",
+			"sounds": [
+				"sounds/obo_magic_fail"
+			]
+		},
+		"rev.magic_heal": {
+			"category": "player",
+			"sounds": [
+				"sounds/obo_magic_heal"
+			]
+		},
+		"rev.magic_ice": {
+			"category": "player",
+			"sounds": [
+				"sounds/obo_magic_ice"
+			]
+		},
+		"rev.magic_fire": {
+			"category": "player",
+			"sounds": [
+				"sounds/obo_magic_fire"
+			]
+		},
+		"rev.magic_other": {
+			"category": "player",
+			"sounds": [
+				"sounds/obo_magic_other"
+			]
+		},
+		"rev.fx.bleeding_damage": {
+			"__use_legacy_max_distance": "true",
+			"category": "random",
+			"sounds": [
+				"sounds/bleeding"
+			]
+		},
+		"rev.fx.concussion_damage": {
+			"__use_legacy_max_distance": "true",
+			"category": "random",
+			"sounds": [
+				"sounds/concussion_damage"
+			]
+		},
+		"rev.fx.heal": {
+			"__use_legacy_max_distance": "true",
+			"category": "random",
+			"sounds": [
+				"sounds/rev_heal"
+			]
+		},
+		"rev.fx.fire_ambient": {
+			"__use_legacy_max_distance": "true",
+			"category": "random",
+			"sounds": [
+				"sounds/red_candle_ambient"
+			]
+		},
+		"rev.fx.human_damage": {
+			"__use_legacy_max_distance": "true",
+			"category": "hostile",
+			"sounds": [
+				"sounds/human_damage"
+			]
+		},
+		"rev.music.mausoleum": {
+			"category": "music",
+			"sounds": [
+				{
+					"name": "sounds/music/mausouleum",
+					"stream": true
+				}
+			]
+		},
+		"rev.music.bounty_music": {
+			"category": "music",
+			"sounds": [
+				{
+					"name": "sounds/music/bounty_music",
+					"stream": true
+				}
+			]
+		},
+		"rev.music.stars": {
+			"category": "music",
+			"sounds": [
+				{
+					"name": "sounds/music/stars",
+					"stream": true
+				}
+			]
+		},
+		"rev.fx.choir": {
+			"category": "music",
+			"sounds": [
+				{
+					"name": "sounds/music/choir",
+					"stream": true
+				}
+			]
+		},
+		"mob.cursed_corpse.say": {
+			"__use_legacy_max_distance": "true",
+			"category": "hostile",
+			"sounds": [
+				"sounds/mob/spider/say1",
+				"sounds/mob/spider/say2",
+				"sounds/mob/spider/say3",
+				{
+					"load_on_low_memory": true,
+					"name": "sounds/mob/spider/say4"
+				}
+			]
+		},
+		"mob.cursed_corpse.step": {
+			"__use_legacy_max_distance": "true",
+			"category": "hostile",
+			"sounds": [
+				{
+					"load_on_low_memory": true,
+					"name": "sounds/mob/spider/step1"
+				},
+				"sounds/mob/spider/step2",
+				"sounds/mob/spider/step3",
+				"sounds/mob/spider/step4"
+			]
+		}
+	}
+}

@@ -1,0 +1,158 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:block": {
+		"description": {
+			"identifier": "rev:bounty_board",
+			"is_experimental": false,
+			"properties": {
+				"rev:used": [
+					0,
+					1
+				],
+				"rev:rotation": [
+					0,
+					1,
+					2,
+					3
+				]
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_property('rev:rotation') == 0",
+				"components": {
+					"minecraft:rotation": [
+						0,
+						180,
+						0
+					]
+				}
+			},
+			{
+				"condition": "query.block_property('rev:rotation') == 1",
+				"components": {
+					"minecraft:rotation": [
+						0,
+						0,
+						0
+					]
+				}
+			},
+			{
+				"condition": "query.block_property('rev:rotation') == 2",
+				"components": {
+					"minecraft:rotation": [
+						0,
+						270,
+						0
+					]
+				}
+			},
+			{
+				"condition": "query.block_property('rev:rotation') == 3",
+				"components": {
+					"minecraft:rotation": [
+						0,
+						90,
+						0
+					]
+				}
+			},
+			{
+				"condition": "query.block_property('rev:used') == 0",
+				"components": {
+					"minecraft:geometry": "geometry.bounty_board",
+					"minecraft:on_interact": {
+						"event": "rev:give_bounty",
+						"target": "self"
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"ambient_occlusion": false,
+							"face_dimming": false,
+							"texture": "rev_bounty_board",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_property('rev:used') == 1",
+				"components": {
+					"minecraft:geometry": "geometry.bounty_board",
+					"minecraft:on_interact": {
+						"event": "rev:do_nothing",
+						"target": "self"
+					},
+					"minecraft:material_instances": {
+						"*": {
+							"ambient_occlusion": false,
+							"face_dimming": false,
+							"texture": "rev_bounty_board_used",
+							"render_method": "alpha_test"
+						}
+					}
+				}
+			}
+		],
+		"components": {
+			"minecraft:block_light_absorption": 14,
+			"minecraft:breathability": "air",
+			"minecraft:destroy_time": 3,
+			"minecraft:loot": "loot_tables/empty.json",
+			"minecraft:pick_collision": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					16,
+					16
+				]
+			},
+			"minecraft:on_player_placing": {
+				"event": "rev:rotate"
+			},
+			"minecraft:entity_collision": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					16,
+					16
+				]
+			}
+		},
+		"events": {
+			"rev:do_nothing": {},
+			"rev:give_bounty": {
+				"run_command": {
+					"command": [
+						"/playsound item.book.page_turn @a ~ ~ ~ ",
+						"/playsound random.pop @a ~ ~ ~ 2"
+					]
+				},
+				"spawn_loot": {
+					"table": "loot_tables/entities/bounty.json"
+				},
+				"set_block_property": {
+					"rev:used": 1
+				}
+			},
+			"rev:rotate": {
+				"sequence": [
+					{
+						"set_block_property": {
+							"rev:rotation": "query.cardinal_facing_2d-2"
+						}
+					}
+				]
+			}
+		}
+	}
+}

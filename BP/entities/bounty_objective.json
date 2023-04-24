@@ -1,0 +1,1750 @@
+{
+	"format_version": "1.19.30",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rev:bounty_objective",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"rev:high_tier": {
+				"minecraft:health": {
+					"max": 120,
+					"value": 120
+				}
+			},
+			"rev:mid_tier": {
+				"minecraft:health": {
+					"max": 80,
+					"value": 80
+				}
+			},
+			"rev:low_tier": {
+				"minecraft:health": {
+					"max": 40,
+					"value": 40
+				}
+			},
+			"rev:innocent": {
+				"minecraft:damage_sensor": {
+					"triggers": [
+						{
+							"cause": "fatal",
+							"on_damage": {
+								"filters": {
+									"test": "has_damage",
+									"value": "fatal",
+									"subject": "self"
+								},
+								"event": "rev:bounty_complete"
+							}
+						},
+						{
+							"damage_multiplier": 1,
+							"on_damage": {
+								"filters": {
+									"all_of": [
+										{
+											"test": "is_family",
+											"value": "player",
+											"subject": "target"
+										},
+										{
+											"test": "has_tag",
+											"value": "already",
+											"subject": "self",
+											"operator": "not"
+										}
+									]
+								},
+								"event": "rev:decide_to_attack"
+							},
+							"deals_damage": true
+						}
+					]
+				},
+				"minecraft:on_target_acquired": {
+					"filters": {
+						"test": "is_family",
+						"value": "player",
+						"subject": "target"
+					},
+					"event": "rev:innocent_dialogue"
+				}
+			},
+			"rev:guilty": {
+				"minecraft:damage_sensor": {
+					"triggers": [
+						{
+							"cause": "fatal",
+							"on_damage": {
+								"filters": {
+									"test": "has_damage",
+									"value": "fatal",
+									"subject": "self"
+								},
+								"event": "rev:bounty_complete"
+							}
+						}
+					]
+				},
+				"minecraft:on_target_acquired": {
+					"filters": {
+						"test": "is_family",
+						"value": "player",
+						"subject": "target"
+					},
+					"event": "rev:criminal_dialogue"
+				}
+			},
+			"rev:shield_recovering": {
+				"minecraft:timer": {
+					"looping": true,
+					"time": 4,
+					"time_down_event": {
+						"event": "rev:regain_shield"
+					}
+				}
+			},
+			"rev:iron_brotherhood_shield_usage": {
+				"minecraft:damage_sensor": {
+					"triggers": [
+						{
+							"cause": "entity_attack",
+							"on_damage": {
+								"filters": {
+									"test": "has_tag",
+									"value": "covered",
+									"subject": "self"
+								},
+								"event": "rev:covered"
+							},
+							"deals_damage": false
+						},
+						{
+							"on_damage": {
+								"filters": {
+									"test": "is_family",
+									"subject": "other",
+									"value": "iron_brotherhood"
+								}
+							},
+							"deals_damage": false
+						},
+						{
+							"on_damage": {
+								"filters": {
+									"test": "has_tag",
+									"value": "covered",
+									"subject": "self",
+									"operator": "not"
+								}
+							},
+							"deals_damage": true
+						}
+					]
+				}
+			},
+			"rev:iron_brotherhood_basic_crossbow": {
+				"minecraft:behavior.charge_held_item": {
+					"priority": 3,
+					"items": [
+						"minecraft:arrow"
+					]
+				},
+				"minecraft:behavior.ranged_attack": {
+					"attack_interval": 3,
+					"attack_radius": 20.0,
+					"attack_radius_min": 5,
+					"speed_multiplier": 2.3,
+					"priority": 3
+				},
+				"minecraft:shooter": {
+					"def": "rev:sharpened_arrow"
+				}
+			},
+			"rev:iron_brotherhood_basic_bow": {
+				"minecraft:behavior.ranged_attack": {
+					"attack_interval": 3,
+					"attack_radius": 20.0,
+					"attack_radius_min": 2,
+					"speed_multiplier": 2,
+					"burst_shots": 3,
+					"burst_interval": 0.9,
+					"priority": 3,
+					"target_in_sight_time": 1
+				},
+				"minecraft:shooter": {
+					"def": "arrow"
+				}
+			},
+			"rev:iron_brotherhood_basic_melee": {
+				"minecraft:behavior.melee_attack": {
+					"priority": 3,
+					"on_attack": {
+						"event": "rev:attack"
+					},
+					"speed_multiplier": 1,
+					"track_target": false
+				}
+			},
+			"villager_skin_1": {
+				"minecraft:skin_id": {
+					"value": 1
+				}
+			},
+			"villager_skin_2": {
+				"minecraft:skin_id": {
+					"value": 2
+				}
+			},
+			"villager_skin_3": {
+				"minecraft:skin_id": {
+					"value": 3
+				}
+			},
+			"villager_skin_4": {
+				"minecraft:skin_id": {
+					"value": 4
+				}
+			},
+			"villager_skin_5": {
+				"minecraft:skin_id": {
+					"value": 5
+				}
+			},
+			"villager_skin_6": {
+				"minecraft:skin_id": {
+					"value": 6
+				}
+			},
+			"villager_skin_7": {
+				"minecraft:skin_id": {
+					"value": 7
+				}
+			},
+			"villager_skin_8": {
+				"minecraft:skin_id": {
+					"value": 8
+				}
+			},
+			"villager_skin_9": {
+				"minecraft:skin_id": {
+					"value": 9
+				}
+			},
+			"villager_skin_10": {
+				"minecraft:skin_id": {
+					"value": 10
+				}
+			},
+			"villager_skin_11": {
+				"minecraft:skin_id": {
+					"value": 11
+				}
+			},
+			"villager_skin_12": {
+				"minecraft:skin_id": {
+					"value": 12
+				}
+			},
+			"villager_skin_13": {
+				"minecraft:skin_id": {
+					"value": 13
+				}
+			},
+			"villager_skin_14": {
+				"minecraft:skin_id": {
+					"value": 14
+				}
+			},
+			"villager_skin_15": {
+				"minecraft:skin_id": {
+					"value": 15
+				}
+			},
+			"villager_skin_16": {
+				"minecraft:skin_id": {
+					"value": 16
+				}
+			},
+			"villager_skin_17": {
+				"minecraft:skin_id": {
+					"value": 17
+				}
+			},
+			"villager_skin_18": {
+				"minecraft:skin_id": {
+					"value": 18
+				}
+			},
+			"villager_skin_19": {
+				"minecraft:skin_id": {
+					"value": 19
+				}
+			},
+			"villager_skin_20": {
+				"minecraft:skin_id": {
+					"value": 20
+				}
+			},
+			"villager_skin_21": {
+				"minecraft:skin_id": {
+					"value": 21
+				}
+			},
+			"villager_skin_22": {
+				"minecraft:skin_id": {
+					"value": 22
+				}
+			},
+			"villager_skin_23": {
+				"minecraft:skin_id": {
+					"value": 23
+				}
+			},
+			"villager_skin_24": {
+				"minecraft:skin_id": {
+					"value": 24
+				}
+			},
+			"villager_skin_25": {
+				"minecraft:skin_id": {
+					"value": 25
+				}
+			},
+			"villager_skin_26": {
+				"minecraft:skin_id": {
+					"value": 26
+				}
+			},
+			"villager_skin_27": {
+				"minecraft:skin_id": {
+					"value": 27
+				}
+			},
+			"villager_skin_28": {
+				"minecraft:skin_id": {
+					"value": 28
+				}
+			},
+			"villager_skin_29": {
+				"minecraft:skin_id": {
+					"value": 29
+				}
+			},
+			"villager_skin_30": {
+				"minecraft:skin_id": {
+					"value": 30
+				}
+			},
+			"villager_skin_31": {
+				"minecraft:skin_id": {
+					"value": 31
+				}
+			},
+			"villager_skin_32": {
+				"minecraft:skin_id": {
+					"value": 32
+				}
+			},
+			"villager_skin_33": {
+				"minecraft:skin_id": {
+					"value": 33
+				}
+			},
+			"villager_skin_34": {
+				"minecraft:skin_id": {
+					"value": 34
+				}
+			},
+			"villager_skin_35": {
+				"minecraft:skin_id": {
+					"value": 35
+				}
+			},
+			"villager_skin_36": {
+				"minecraft:skin_id": {
+					"value": 36
+				}
+			},
+			"villager_skin_37": {
+				"minecraft:skin_id": {
+					"value": 37
+				}
+			},
+			"villager_skin_38": {
+				"minecraft:skin_id": {
+					"value": 38
+				}
+			},
+			"villager_skin_39": {
+				"minecraft:skin_id": {
+					"value": 39
+				}
+			},
+			"villager_skin_40": {
+				"minecraft:skin_id": {
+					"value": 40
+				}
+			},
+			"villager_skin_41": {
+				"minecraft:skin_id": {
+					"value": 41
+				}
+			},
+			"villager_skin_42": {
+				"minecraft:skin_id": {
+					"value": 42
+				}
+			},
+			"villager_skin_43": {
+				"minecraft:skin_id": {
+					"value": 43
+				}
+			},
+			"villager_skin_44": {
+				"minecraft:skin_id": {
+					"value": 44
+				}
+			}
+		},
+		"components": {
+			"minecraft:health": {
+				"value": 140,
+				"max": 140
+			},
+			"minecraft:nameable": {},
+			"minecraft:type_family": {
+				"family": [
+					"objective",
+					"monster",
+					"human"
+				]
+			},
+			"minecraft:inventory": {
+				"inventory_size": 5,
+				"restrict_to_owner": true,
+				"container_type": "inventory",
+				"private": false
+			},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.9
+			},
+			"minecraft:behavior.follow_owner": {
+				"can_teleport": true,
+				"priority": 2,
+				"speed_multiplier": 1
+			},
+			"minecraft:movement": {
+				"value": 0.43
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:navigation.walk": {
+				"is_amphibious": true,
+				"can_pass_doors": true,
+				"can_walk": true,
+				"can_break_doors": true
+			},
+			"minecraft:annotation.break_door": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:floats_in_liquid": {},
+			"minecraft:breathable": {
+				"total_supply": 30,
+				"suffocate_time": 0,
+				"breathes_air": true,
+				"breathes_water": true
+			},
+			"minecraft:attack": {
+				"damage": 2
+			},
+			"minecraft:behavior.float": {
+				"priority": 1
+			},
+			"minecraft:behavior.mount_pathing": {
+				"priority": 1,
+				"speed_multiplier": 1
+			},
+			"minecraft:navigation.swim": {
+				"can_path_over_water": true
+			},
+			"minecraft:underwater_movement": {
+				"value": 0.45
+			},
+			"minecraft:behavior.swim_wander": {
+				"interval": 0.00833,
+				"look_ahead": 5,
+				"speed_multiplier": 2,
+				"priority": 1,
+				"wander_time": 5
+			},
+			"minecraft:behavior.stomp_turtle_egg": {
+				"priority": 4,
+				"speed_multiplier": 1,
+				"search_range": 10,
+				"search_height": 3,
+				"goal_radius": 1.14,
+				"search_count": 4,
+				"interval": 20
+			},
+			"minecraft:behavior.move_towards_restriction": {
+				"priority": 5,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 6,
+				"probability": 0.02
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 7
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 2,
+				"within_radius": 64,
+				"reselect_targets": true,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "player"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "undead"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "piglin"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "red_dusk_cultist"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								}
+							]
+						},
+						"max_dist": 50
+					}
+				],
+				"must_see": true,
+				"must_see_forget_duration": 17
+			},
+			"minecraft:follow_range": {
+				"value": 64,
+				"max": 64
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			}
+		},
+		"events": {
+			"rev:low_tier": {
+				"sequence": [
+					{
+						"add": {
+							"component_groups": [
+								"rev:low_tier"
+							]
+						}
+					},
+					{
+						"randomize": [
+							{
+								"weight": 5,
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.armor.head 0 leather_helmet",
+										"/replaceitem entity @s slot.armor.chest 0 leather_chestplate",
+										"/replaceitem entity @s slot.armor.legs 0 leather_leggings",
+										"/replaceitem entity @s slot.armor.feet 0 leather_boots"
+									]
+								}
+							},
+							{
+								"weight": 5,
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.armor.head 0 chainmail_helmet",
+										"/replaceitem entity @s slot.armor.chest 0 chainmail_chestplate",
+										"/replaceitem entity @s slot.armor.legs 0 chainmail_leggings",
+										"/replaceitem entity @s slot.armor.feet 0 chainmail_boots"
+									]
+								}
+							},
+							{
+								"weight": 5,
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.armor.chest 0 iron_chestplate",
+										"/replaceitem entity @s slot.armor.legs 0 chainmail_leggings",
+										"/replaceitem entity @s slot.armor.feet 0 iron_boots"
+									]
+								}
+							},
+							{
+								"weight": 5,
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.armor.head 0 iron_helmet",
+										"/replaceitem entity @s slot.armor.feet 0 iron_boots"
+									]
+								}
+							}
+						]
+					},
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s sharpness 3",
+										"/enchant @s power 3"
+									]
+								}
+							},
+							{
+								"weight": 5
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s knockback ",
+										"/enchant @s punch "
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s fire_aspect ",
+										"/enchant @s flame"
+									]
+								}
+							}
+						]
+					},
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s unbreaking 2"
+									]
+								}
+							},
+							{
+								"weight": 3
+							}
+						]
+					}
+				]
+			},
+			"rev:mid_tier": {
+				"sequence": [
+					{
+						"add": {
+							"component_groups": [
+								"rev:mid_tier"
+							]
+						}
+					},
+					{
+						"randomize": [
+							{
+								"weight": 5,
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.armor.head 0 iron_helmet",
+										"/replaceitem entity @s slot.armor.chest 0 iron_chestplate",
+										"/replaceitem entity @s slot.armor.legs 0 iron_leggings",
+										"/replaceitem entity @s slot.armor.feet 0 iron_boots"
+									]
+								}
+							},
+							{
+								"weight": 5,
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.armor.head 0 golden_helmet",
+										"/replaceitem entity @s slot.armor.chest 0 golden_chestplate",
+										"/replaceitem entity @s slot.armor.legs 0 golden_leggings",
+										"/replaceitem entity @s slot.armor.feet 0 golden_boots"
+									]
+								}
+							},
+							{
+								"weight": 5,
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.armor.chest 0 iron_chestplate",
+										"/replaceitem entity @s slot.armor.legs 0 iron_leggings",
+										"/replaceitem entity @s slot.armor.feet 0 iron_boots"
+									]
+								}
+							}
+						]
+					},
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s sharpness 3",
+										"/enchant @s power 3"
+									]
+								}
+							},
+							{
+								"weight": 3
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s knockback ",
+										"/enchant @s punch "
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s fire_aspect ",
+										"/enchant @s flame"
+									]
+								}
+							}
+						]
+					},
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s unbreaking 2"
+									]
+								}
+							},
+							{
+								"weight": 1
+							}
+						]
+					}
+				]
+			},
+			"rev:high_tier": {
+				"sequence": [
+					{
+						"add": {
+							"component_groups": [
+								"rev:high_tier"
+							]
+						}
+					},
+					{
+						"randomize": [
+							{
+								"weight": 5,
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.armor.head 0 diamond_helmet",
+										"/replaceitem entity @s slot.armor.chest 0 diamond_chestplate",
+										"/replaceitem entity @s slot.armor.legs 0 diamond_leggings",
+										"/replaceitem entity @s slot.armor.feet 0 diamond_boots"
+									]
+								}
+							},
+							{
+								"weight": 5,
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.armor.head 0 rev:glass_helmet",
+										"/replaceitem entity @s slot.armor.chest 0 rev:glass_chestplate",
+										"/replaceitem entity @s slot.armor.legs 0 rev:glass_leggings",
+										"/replaceitem entity @s slot.armor.feet 0 rev:glass_boots"
+									]
+								}
+							},
+							{
+								"weight": 5,
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.armor.chest 0 rev:glass_chestplate",
+										"/replaceitem entity @s slot.armor.legs 0 rev:glass_leggings",
+										"/replaceitem entity @s slot.armor.feet 0 rev:glass_boots"
+									]
+								}
+							},
+							{
+								"weight": 3,
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.armor.chest 0 netherite_chestplate",
+										"/replaceitem entity @s slot.armor.legs 0 netherite_leggings",
+										"/replaceitem entity @s slot.armor.feet 0 netherite_boots"
+									]
+								}
+							}
+						]
+					}
+				]
+			},
+			"rev:regain_shield": {
+				"run_command": {
+					"command": [
+						"/playsound armor.equip_iron @a ~ ~ ~ 10",
+						"/tag @s add covered"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"rev:shield_recovering"
+					]
+				}
+			},
+			"rev:covered": {
+				"sequence": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment",
+									"value": "iron_axe",
+									"subject": "damager"
+								},
+								{
+									"test": "has_equipment",
+									"value": "rev:iron_brotherhood_mace",
+									"subject": "damager"
+								},
+								{
+									"test": "has_equipment",
+									"value": "diamond_axe",
+									"subject": "damager"
+								},
+								{
+									"test": "has_equipment",
+									"value": "netherite_axe",
+									"subject": "damager"
+								},
+								{
+									"test": "has_equipment",
+									"value": "stone_axe",
+									"subject": "damager"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"/playsound random.break @a ~ ~ ~ 8",
+								"/tag @s remove covered",
+								"/playanimation @s animation.rev_humanoid.shield_broken animation.rev_humanoid.idle 0.2"
+							]
+						},
+						"add": {
+							"component_groups": [
+								"rev:shield_recovering"
+							]
+						}
+					},
+					{
+						"filters": {
+							"none_of": [
+								{
+									"test": "has_equipment",
+									"value": "iron_axe",
+									"subject": "damager"
+								},
+								{
+									"test": "has_equipment",
+									"value": "diamond_axe",
+									"subject": "damager"
+								},
+								{
+									"test": "has_equipment",
+									"value": "netherite_axe",
+									"subject": "damager"
+								},
+								{
+									"test": "has_equipment",
+									"value": "rev:iron_brotherhood_mace",
+									"subject": "damager"
+								},
+								{
+									"test": "has_equipment",
+									"value": "stone_axe",
+									"subject": "damager"
+								}
+							]
+						},
+						"sequence": [
+							{
+								"randomize": [
+									{
+										"weight": 3,
+										"run_command": {
+											"command": [
+												"/playsound item.shield.block @a ~ ~ ~"
+											]
+										}
+									},
+									{
+										"weight": 1,
+										"run_command": {
+											"command": [
+												"/playsound random.break @a ~ ~ ~",
+												"/tag @s remove covered",
+												"/playanimation @s animation.rev_humanoid.shield_broken animation.rev_humanoid.idle 0.2"
+											]
+										},
+										"add": {
+											"component_groups": [
+												"rev:shield_recovering"
+											]
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"rev:bounty_complete": {
+				"run_command": {
+					"command": [
+						"/me §l§4Has been taken down...",
+						"/playsound rev.fx.bounty_start @a ~ ~ ~ 1 0.8",
+						"/title @a[r=10] title §l§6Bounty Complete!",
+						"/title @a[r=10] subtitle §l§2The reward has been sent...",
+						"/music play music.game 1 4"
+					]
+				}
+			},
+			"rev:attack": {
+				"randomize": [
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"/playanimation @s animation.rev_humanoid.sword_swing"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"/playanimation @s animation.rev_humanoid.sword_swing_alt"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"/playanimation @s animation.rev_humanoid.sword_swing_alt_2"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"/playanimation @s animation.rev_humanoid.sword_swing_alt_3"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"/playanimation @s animation.rev_humanoid.sword_swing_alt_4"
+							]
+						}
+					}
+				]
+			},
+			"rev:innocent_dialogue": {
+				"sequence": [
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/say - Don't do this please!"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/say - I didn't do anything!"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/say - What you heard is not true please don't kill me!"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/say - You don't know what really happened, please just leave!"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/say - I am innocent!"
+									]
+								}
+							}
+						]
+					}
+				]
+			},
+			"rev:criminal_dialogue": {
+				"sequence": [
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/say - You will never get me!"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/say - Show me what you've got!"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/say - You're here to kill me right? Try It!"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/say - I am not letting you escape!"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/say - You will die!"
+									]
+								}
+							}
+						]
+					},
+					{
+						"trigger": "rev:get_attack_method"
+					},
+					{
+						"run_command": {
+							"command": [
+								"/music play rev.music.bounty_music 0.6 4"
+							]
+						}
+					}
+				]
+			},
+			"rev:decide_to_attack": {
+				"trigger": "rev:get_attack_method",
+				"run_command": {
+					"command": [
+						"/tag @s add already",
+						"/music play rev.music.bounty_music 0.6 4"
+					]
+				}
+			},
+			"rev:get_attack_method": {
+				"sequence": [
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"rev:iron_brotherhood_basic_melee"
+									]
+								},
+								"remove": {
+									"component_groups": [
+										"rev:iron_brotherhood_basic_bow",
+										"rev:iron_brotherhood_basic_crossbow"
+									]
+								},
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.weapon.mainhand 0 iron_sword"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"rev:iron_brotherhood_basic_melee"
+									]
+								},
+								"remove": {
+									"component_groups": [
+										"rev:iron_brotherhood_basic_bow",
+										"rev:iron_brotherhood_basic_crossbow"
+									]
+								},
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.weapon.mainhand 0 stone_sword"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"rev:iron_brotherhood_basic_melee"
+									]
+								},
+								"remove": {
+									"component_groups": [
+										"rev:iron_brotherhood_basic_bow",
+										"rev:iron_brotherhood_basic_crossbow"
+									]
+								},
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.weapon.mainhand 0 diamond_sword"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"rev:iron_brotherhood_basic_melee"
+									]
+								},
+								"remove": {
+									"component_groups": [
+										"rev:iron_brotherhood_basic_bow",
+										"rev:iron_brotherhood_basic_crossbow"
+									]
+								},
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.weapon.mainhand 0 diamond_axe"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"rev:iron_brotherhood_basic_melee"
+									]
+								},
+								"remove": {
+									"component_groups": [
+										"rev:iron_brotherhood_basic_bow",
+										"rev:iron_brotherhood_basic_crossbow"
+									]
+								},
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.weapon.mainhand 0 rev:iron_brotherhood_mace"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"rev:iron_brotherhood_basic_bow"
+									]
+								},
+								"remove": {
+									"component_groups": [
+										"rev:iron_brotherhood_basic_melee"
+									]
+								},
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.weapon.mainhand 0 bow"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"rev:iron_brotherhood_basic_crossbow"
+									]
+								},
+								"remove": {
+									"component_groups": [
+										"rev:iron_brotherhood_basic_melee"
+									]
+								},
+								"run_command": {
+									"command": [
+										"/replaceitem entity @s slot.weapon.mainhand 0 rev:iron_brotherhood_champion_bow"
+									]
+								}
+							}
+						]
+					},
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s sharpness 5",
+										"/enchant @s power 5"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s sharpness 2",
+										"/enchant @s power 2"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s knockback 2",
+										"/enchant @s punch 2"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s knockback",
+										"/enchant @s punch"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s fire_aspect 2",
+										"/enchant @s flame"
+									]
+								}
+							}
+						]
+					},
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"run_command": {
+									"command": [
+										"/enchant @s unbreaking 3",
+										"/enchant @s mending 1"
+									]
+								}
+							},
+							{
+								"weight": 1
+							}
+						]
+					}
+				]
+			},
+			"minecraft:entity_spawned": {
+				"sequence": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_biome",
+									"value": "ocean"
+								},
+								{
+									"test": "is_biome",
+									"value": "beach"
+								},
+								{
+									"test": "is_biome",
+									"value": "river"
+								}
+							]
+						},
+						"run_command": {
+							"command": [
+								"/structure load mystructure:bounty_sea ~-5 55 ~-5"
+							]
+						}
+					},
+					{
+						"filters": {
+							"test": "has_component",
+							"operator": "!=",
+							"value": "minecraft:skin_id"
+						},
+						"randomize": [
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_1"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_2"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_3"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_4"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_5"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_6"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_7"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_8"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_9"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_10"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_11"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_12"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_13"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_14"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_15"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_16"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_17"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_18"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_19"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_20"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_21"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_22"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_23"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_24"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_25"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_26"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_27"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_28"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_29"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_30"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_31"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_32"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_33"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_34"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_35"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_36"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_37"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_38"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_39"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_40"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_41"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_42"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_43"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"villager_skin_44"
+									]
+								}
+							}
+						]
+					},
+					{
+						"randomize": [
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"rev:innocent"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"rev:guilty"
+									]
+								}
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+}

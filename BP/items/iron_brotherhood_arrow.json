@@ -1,0 +1,19 @@
+{
+	"format_version": "1.19.20",
+	"minecraft:item": {
+		"description": {
+			"identifier": "rev:iron_brotherhood_arrow",
+			"category": "nature"
+		},
+		"components": {
+			"minecraft:allow_off_hand": true,
+			"minecraft:projectile": {
+				"projectile_entity": "rev:sharpened_arrow",
+				"minimum_critical_power": 1
+			},
+			"minecraft:icon": {
+				"texture": "rev_iron_brotherhood_arrow"
+			}
+		}
+	}
+}

@@ -1,0 +1,161 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "rev:iron_brotherhood_mage",
+			"materials": {
+				"default": "villager_v2",
+				"masked": "villager_v2_masked"
+			},
+			"textures": {
+				"base": "textures/entity/habitant/base (1)",
+				"base2": "textures/entity/habitant/base (2)",
+				"base3": "textures/entity/habitant/base (3)",
+				"base4": "textures/entity/habitant/base (4)",
+				"base5": "textures/entity/habitant/base (5)",
+				"base6": "textures/entity/habitant/base (6)",
+				"base7": "textures/entity/habitant/base (7)",
+				"base8": "textures/entity/habitant/base (8)",
+				"base9": "textures/entity/habitant/base (9)",
+				"base10": "textures/entity/habitant/base (10)",
+				"base11": "textures/entity/habitant/base (11)",
+				"base12": "textures/entity/habitant/base (12)",
+				"base13": "textures/entity/habitant/base (13)",
+				"base14": "textures/entity/habitant/base (14)",
+				"base15": "textures/entity/habitant/base (15)",
+				"base16": "textures/entity/habitant/base (16)",
+				"base17": "textures/entity/habitant/base (17)",
+				"base18": "textures/entity/habitant/base (18)",
+				"base19": "textures/entity/habitant/base (19)",
+				"base20": "textures/entity/habitant/base (20)",
+				"base21": "textures/entity/habitant/base (21)",
+				"base22": "textures/entity/habitant/base (22)",
+				"base23": "textures/entity/habitant/base (23)",
+				"base24": "textures/entity/habitant/base (24)",
+				"base25": "textures/entity/habitant/base (25)",
+				"base26": "textures/entity/habitant/base (26)",
+				"base27": "textures/entity/habitant/base (27)",
+				"base28": "textures/entity/habitant/base (28)",
+				"base29": "textures/entity/habitant/base (29)",
+				"base30": "textures/entity/habitant/base (30)",
+				"base31": "textures/entity/habitant/base (31)",
+				"base32": "textures/entity/habitant/base (32)",
+				"base33": "textures/entity/habitant/base (33)",
+				"base34": "textures/entity/habitant/base (34)",
+				"base35": "textures/entity/habitant/base (35)",
+				"base36": "textures/entity/habitant/base (36)",
+				"base37": "textures/entity/habitant/base (37)",
+				"base38": "textures/entity/habitant/base (38)",
+				"base39": "textures/entity/habitant/base (39)",
+				"base40": "textures/entity/habitant/base (40)",
+				"base41": "textures/entity/habitant/base (41)",
+				"base42": "textures/entity/habitant/base (42)",
+				"base43": "textures/entity/habitant/base (43)",
+				"base44": "textures/entity/habitant/base (44)"
+			},
+			"geometry": {
+				"default": "geometry.obo_habitant"
+			},
+			"spawn_egg": {
+				"base_color": "#1557C8",
+				"overlay_color": "#A3BF23"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+					"variable.tcos1 = -variable.tcos0;",
+					"variable.is_crossbow_user = q.get_equipped_item_name('main_hand') == 'crossbow' && query.has_target==true;",
+					"variable.is_bow_user = q.get_equipped_item_name('main_hand') == 'bow' && query.has_target==true || q.get_equipped_item_name('main_hand') == 'iron_brotherhood_champion_bow' && query.has_target==true;",
+					"variable.is_sword_user = q.get_equipped_item_name('main_hand') == 'stone_sword' && query.has_target==true || q.get_equipped_item_name('main_hand') == 'iron_brotherhood_mace' && query.has_target==true;",
+					"variable.is_iron_sword_user = q.get_equipped_item_name('main_hand') == 'iron_brotherhood_sword' && query.has_target==true;",
+					"variable.is_iron_sword_and_shield_user = q.get_equipped_item_name('off_hand') == 'shield' && query.has_target==true;",
+					"variable.attack_body_rot_y = Math.sin(Math.sqrt(variable.attack_time) * 360.0) * 11.46;",
+					"variable.cos_attack_body_rot_y = Math.cos(variable.attack_body_rot_y);",
+					"variable.sin_attack_body_rot_y = Math.sin(variable.attack_body_rot_y);",
+					"variable.internal_swim_pos = Math.mod(query.modified_distance_moved, 26.0);",
+					"variable.attack = Math.sin((1.0 - (1.0 - variable.attack_time) * (1.0 - variable.attack_time)) * 180.0) * 57.3;",
+					"variable.attack2 = Math.sin(variable.attack_time * 180.0) * 57.3;",
+					"variable.z_bob = Math.cos(query.life_time * 103.13244) * 2.865 + 2.865;",
+					"variable.x_bob = Math.sin(query.life_time * 76.776372) * 2.865;"
+				],
+				"animate": [
+					"humanoid_baby_big_head_controller",
+					"look_at_target_controller",
+					"move_controller",
+					"riding_controller",
+					"holding_controller",
+					"charging_controller",
+					"sneaking_controller",
+					"bob_controller",
+					"damage_nearby_mobs_controller",
+					"swimming_controller",
+					"use_item_progress_controller",
+					{
+						"sword_and_shield": "variable.is_iron_sword_and_shield_user"
+					},
+					{
+						"move_arms_controller": "query.has_target==false"
+					},
+					{
+						"crossbow": "variable.is_crossbow_user"
+					},
+					{
+						"sword_1": "variable.is_sword_user"
+					},
+					{
+						"death": "query.health==0"
+					},
+					{
+						"sword_2": "variable.is_iron_sword_user"
+					},
+					{
+						"bow": "variable.is_bow_user"
+					}
+				]
+			},
+			"animations": {
+				"death": "animation.rev_humanoid.death",
+				"crossbow": "animation.rev_humanoid.crossbow",
+				"sword_and_shield": "animation.rev_humanoid.shield",
+				"sword_1": "animation.rev_humanoid.sword_1",
+				"sword_2": "animation.rev_humanoid.sword_2",
+				"move_arms": "animation.rev_humanoid.move_arms",
+				"move_arms_controller": "controller.animation.rev_arm_movement",
+				"exist": "animation.rev_humanoid.idle",
+				"arm_fix": "animation.rev_humanoid.calm",
+				"humanoid_baby_big_head_controller": "controller.animation.humanoid.baby_big_head",
+				"look_at_target_controller": "controller.animation.humanoid.look_at_target",
+				"move_controller": "controller.animation.rev_movement",
+				"riding_controller": "controller.animation.humanoid.riding",
+				"holding_controller": "controller.animation.humanoid.holding",
+				"brandish_spear_controller": "controller.animation.humanoid.brandish_spear",
+				"charging_controller": "controller.animation.humanoid.charging",
+				"attack_controller": "controller.animation.humanoid.attack",
+				"sneaking_controller": "controller.animation.humanoid.sneaking",
+				"bob_controller": "controller.animation.humanoid.bob",
+				"damage_nearby_mobs_controller": "controller.animation.humanoid.damage_nearby_mobs",
+				"bow_and_arrow_controller": "controller.animation.humanoid.bow_and_arrow",
+				"swimming_controller": "controller.animation.humanoid.swimming",
+				"use_item_progress_controller": "controller.animation.humanoid.use_item_progress",
+				"bow": "animation.rev_humanoid.bow",
+				"look_at_target_default": "animation.humanoid.look_at_target.default",
+				"look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+				"look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+				"move": "animation.rev_humanoid.move",
+				"riding.arms": "animation.humanoid.riding.arms",
+				"riding.legs": "animation.humanoid.riding.legs",
+				"holding": "animation.humanoid.holding",
+				"brandish_spear": "animation.humanoid.brandish_spear",
+				"charging": "animation.humanoid.charging",
+				"attack.rotations": "animation.humanoid.attack.rotations",
+				"sneaking": "animation.humanoid.sneaking",
+				"damage_nearby_mobs": "animation.humanoid.damage_nearby_mobs",
+				"swimming": "animation.humanoid.swimming"
+			},
+			"enable_attachables": true,
+			"render_controllers": [
+				"controller.render.habitant"
+			]
+		}
+	}
+}

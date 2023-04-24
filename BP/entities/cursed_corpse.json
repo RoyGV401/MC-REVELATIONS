@@ -1,0 +1,308 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rev:cursed_corpse",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"runtime_identifier": "minecraft:spider"
+		},
+		"components": {
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 3,
+				"must_see": true,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "player"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								}
+							]
+						},
+						"max_dist": 30
+					}
+				]
+			},
+			"minecraft:timer": {
+				"looping": true,
+				"time": 5,
+				"time_down_event": {
+					"filters": {
+						"test": "has_target",
+						"subject": "self",
+						"value": true
+					},
+					"event": "rev:summon_mobs"
+				}
+			},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player?20:0"
+			},
+			"minecraft:nameable": {},
+			"minecraft:type_family": {
+				"family": [
+					"undead",
+					"mob",
+					"monster"
+				]
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/cursed_corpse.json"
+			},
+			"minecraft:collision_box": {
+				"width": 0.8,
+				"height": 0.9
+			},
+			"minecraft:knockback_resistance": {
+				"value": 2,
+				"max": 2
+			},
+			"minecraft:health": {
+				"value": 40,
+				"max": 40
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:navigation.climb": {
+				"can_path_over_water": true
+			},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:attack": {
+				"damage": 3
+			},
+			"minecraft:fire_immune": true,
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:behavior.float": {
+				"priority": 1
+			},
+			"minecraft:behavior.mount_pathing": {
+				"priority": 5,
+				"speed_multiplier": 1.25,
+				"target_dist": 0,
+				"track_target": true
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 0.8
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 6,
+				"probability": 0.02
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 7
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1
+			},
+			"minecraft:rideable": {
+				"seat_count": 1,
+				"family_types": [
+					"zombie"
+				],
+				"seats": {
+					"position": [
+						0,
+						0.54,
+						-0.1
+					]
+				}
+			},
+			"minecraft:on_death": {
+				"event": "rev:death"
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": false,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {}
+		},
+		"events": {
+			"rev:death": {
+				"run_command": {
+					"command": [
+						"structure load mystructure:loot_base ~~~",
+						"particle rev:red_dusk_ritual ~ ~ ~"
+					]
+				}
+			},
+			"rev:summon_mobs": {
+				"randomize": [
+					{
+						"weight": 2,
+						"run_command": {
+							"command": [
+								"particle rev:red_dusk_ritual ~ ~ ~",
+								"summon zombie ^2 ^1 ^",
+								"summon zombie ^-2 ^1 ^"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"run_command": {
+							"command": [
+								"particle rev:red_dusk_ritual ~ ~ ~",
+								"summon skeleton ^2 ^1 ^",
+								"summon skeleton ^-2 ^1 ^"
+							]
+						}
+					}
+				]
+			},
+			"minecraft:entity_spawned": {
+				"randomize": [
+					{
+						"weight": 1,
+						"randomize": [
+							{
+								"weight": 80,
+								"filters": {
+									"all_of": [
+										{
+											"test": "is_daytime",
+											"value": false
+										},
+										{
+											"test": "is_snow_covered",
+											"value": true
+										},
+										{
+											"test": "is_underground",
+											"value": false
+										}
+									]
+								},
+								"remove": {},
+								"add": {
+									"component_groups": [
+										"rev:cursed_corpse_stray_jockey",
+										"rev:cursed_corpse_neutral"
+									]
+								}
+							},
+							{
+								"weight": 80,
+								"filters": {
+									"test": "is_biome",
+									"value": "the_nether"
+								},
+								"remove": {},
+								"add": {
+									"component_groups": [
+										"rev:cursed_corpse_wither_jockey",
+										"rev:cursed_corpse_neutral"
+									]
+								}
+							},
+							{
+								"weight": 20,
+								"filters": {
+									"any_of": [
+										{
+											"test": "is_daytime",
+											"value": false
+										},
+										{
+											"test": "is_underground",
+											"value": true
+										}
+									]
+								},
+								"remove": {},
+								"add": {
+									"component_groups": [
+										"rev:cursed_corpse_jockey",
+										"rev:cursed_corpse_neutral"
+									]
+								}
+							}
+						]
+					},
+					{
+						"weight": 99,
+						"remove": {},
+						"add": {
+							"component_groups": [
+								"rev:cursed_corpse_neutral"
+							]
+						}
+					}
+				]
+			},
+			"minecraft:become_hostile": {
+				"remove": {
+					"component_groups": [
+						"rev:cursed_corpse_neutral"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"rev:cursed_corpse_hostile"
+					]
+				}
+			},
+			"minecraft:become_neutral": {
+				"remove": {
+					"component_groups": [
+						"rev:cursed_corpse_hostile"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"rev:cursed_corpse_neutral"
+					]
+				}
+			},
+			"minecraft:become_angry": {
+				"add": {
+					"component_groups": [
+						"rev:cursed_corpse_angry"
+					]
+				}
+			},
+			"minecraft:become_calm": {
+				"remove": {
+					"component_groups": [
+						"rev:cursed_corpse_angry"
+					]
+				}
+			}
+		}
+	}
+}

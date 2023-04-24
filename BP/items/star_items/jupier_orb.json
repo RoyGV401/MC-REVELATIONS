@@ -1,0 +1,46 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "rev:jupier_orb",
+			"category": "nature"
+		},
+		"events": {
+			"rev:jupiter": {
+				"swing": {},
+				"run_command": {
+					"command": [
+						"/tag @p add jupiter_i",
+						"/playsound rev.fx.fire_ambient @a ~ ~ ~ 0.4 3",
+						"/particle rev:jupiter ~ ~ ~"
+					]
+				},
+				"shoot": {
+					"projectile": "rev:jupiter_orb_entity",
+					"launch_power": 2
+				},
+				"decrement_stack": {}
+			}
+		},
+		"components": {
+			"minecraft:cooldown": {
+				"duration": 10,
+				"category": "jupiter"
+			},
+			"minecraft:foil": true,
+			"minecraft:use_duration": 1,
+			"minecraft:use_animation": "bow",
+			"minecraft:max_stack_size": 3,
+			"minecraft:food": {
+				"can_always_eat": true,
+				"nutrition": 0,
+				"on_consume": {
+					"event": "rev:jupiter"
+				}
+			},
+			"minecraft:icon": {
+				"texture": "rev_jupier_orb"
+			}
+		}
+	}
+}

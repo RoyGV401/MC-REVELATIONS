@@ -1,0 +1,49 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "rev:bandages",
+			"category": "nature"
+		},
+		"events": {
+			"rev:start": {
+				"run_command": {
+					"command": "/playsound hit.cloth @a ~ ~ ~ 0.7"
+				}
+			},
+			"rev:bandage": {
+				"run_command": {
+					"command": [
+						"/scoreboard players set @s[scores={bleeding=!0}] bleeding 399",
+						"/scoreboard players set @s[scores={concussion=!0}] concussion 399",
+						"/effect @s regeneration 1 3 true",
+						"/stopsound @s random.eat",
+						"/playsound rev.fx.heal @a ~ ~ ~ 0.7"
+					]
+				},
+				"decrement_stack": {}
+			}
+		},
+		"components": {
+			"minecraft:on_use": {
+				"on_use": {
+					"event": "rev:start"
+				}
+			},
+			"minecraft:use_duration": 0.8,
+			"minecraft:food": {
+				"can_always_eat": true,
+				"on_consume": {
+					"event": "rev:bandage"
+				},
+				"nutrition": 0,
+				"saturation_modifier": "low"
+			},
+			"minecraft:icon": {
+				"texture": "rev_bandages"
+			},
+			"minecraft:use_animation": "camera",
+			"minecraft:render_offsets": "apple"
+		}
+	}
+}

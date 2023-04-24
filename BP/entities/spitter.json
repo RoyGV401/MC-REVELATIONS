@@ -1,0 +1,266 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rev:spitter",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"rev:explode": {
+				"minecraft:movement": {
+					"value": 0.1
+				},
+				"minecraft:is_ignited": {},
+				"minecraft:explode": {
+					"fuse_length": 1.5,
+					"fuse_lit": true,
+					"power": 4,
+					"breaks_blocks": false,
+					"causes_fire": false,
+					"destroy_affected_by_griefing": true
+				}
+			},
+			"rev:ranged": {
+				"minecraft:shooter": {
+					"def": "rev:spitter_explosive"
+				},
+				"minecraft:behavior.ranged_attack": {
+					"attack_interval": 2,
+					"attack_radius": 6,
+					"target_in_sight_time": 0.2,
+					"speed_multiplier": 2.0,
+					"attack_radius_min": 5,
+					"burst_interval": 0.05,
+					"burst_shots": 6,
+					"priority": 2
+				}
+			},
+			"rev:revenant_jockey": {
+				"minecraft:behavior.find_mount": {
+					"priority": 1,
+					"within_radius": 16
+				}
+			}
+		},
+		"components": {
+			"minecraft:experience_reward": {
+				"on_death": 20
+			},
+			"minecraft:scale": {
+				"value": 1.1
+			},
+			"minecraft:follow_range": {
+				"max": 64,
+				"value": 64
+			},
+			"minecraft:nameable": {},
+			"minecraft:type_family": {
+				"family": [
+					"revenant",
+					"undead",
+					"monster"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.9
+			},
+			"minecraft:movement": {
+				"value": 0.2
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:navigation.walk": {
+				"is_amphibious": true,
+				"can_pass_doors": true,
+				"can_walk": true,
+				"can_break_doors": true
+			},
+			"minecraft:annotation.break_door": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:health": {
+				"value": 70,
+				"max": 70
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0,
+				"breathes_air": true,
+				"breathes_water": true
+			},
+			"minecraft:attack": {
+				"damage": 3
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/revenant.json"
+			},
+			"minecraft:behavior.stomp_turtle_egg": {
+				"priority": 4,
+				"speed_multiplier": 1,
+				"search_range": 10,
+				"search_height": 3,
+				"goal_radius": 1.14,
+				"search_count": 4,
+				"interval": 20
+			},
+			"minecraft:behavior.move_towards_restriction": {
+				"priority": 5,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 6,
+				"probability": 0.02
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 7
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 2,
+				"within_radius": 64,
+				"reselect_targets": true,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "player"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "snowgolem"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "irongolem"
+								}
+							]
+						},
+						"max_dist": 64
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "villager"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "wandering_trader"
+								}
+							]
+						},
+						"max_dist": 64,
+						"must_see": false
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"value": "baby_turtle"
+								},
+								{
+									"test": "in_water",
+									"subject": "other",
+									"operator": "!=",
+									"value": true
+								}
+							]
+						},
+						"max_dist": 64
+					}
+				],
+				"must_see": true,
+				"must_see_forget_duration": 17
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "fatal",
+						"on_damage": {
+							"filters": {
+								"test": "has_damage",
+								"value": "fatal",
+								"subject": "self"
+							},
+							"event": "minecraft:explode"
+						},
+						"deals_damage": false
+					},
+					{
+						"cause": "entity_explosion",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			}
+		},
+		"events": {
+			"rev:add_explode": {
+				"add": {
+					"component_groups": [
+						"rev:explode"
+					]
+				}
+			},
+			"minecraft:explode": {
+				"run_command": {
+					"command": [
+						"/particle rev:spitter_particle ~ ~1 ~",
+						"/event entity @s[tag=!is_exploding] rev:add_explode",
+						"/tag @s add is_exploding",
+						"/playsound random.fizz @a ~ ~ ~ 1 0.9",
+						"/playsound rev.fx.spitting @a ~ ~ ~ 0.7 0.65"
+					]
+				}
+			},
+			"minecraft:entity_spawned": {
+				"sequence": [
+					{
+						"add": {
+							"component_groups": [
+								"rev:ranged"
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

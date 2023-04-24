@@ -1,0 +1,19 @@
+{
+	"format_version": [
+		1,
+		1,
+		0
+	],
+	"rev:maus_loader": {
+		"sound": "stone",
+		"textures": "rev_maus_loader"
+	},
+	"rev:void_soil": {
+		"sound": "fungus",
+		"textures": "rev_void_soil"
+	},
+	"rev:bounty_board": {
+		"sound": "wood",
+		"textures": "rev_bounty_board"
+	}
+}

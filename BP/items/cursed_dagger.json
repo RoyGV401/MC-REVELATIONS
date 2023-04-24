@@ -1,0 +1,57 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "rev:cursed_dagger",
+			"category": "nature"
+		},
+		"events": {
+			"rev:dark": {
+				"damage": {
+					"amount": 4,
+					"target": "self",
+					"type": "all"
+				},
+				"run_command": {
+					"command": [
+						"/playsound mob.wither.shoot @a ~ ~ ~ 0.5",
+						"/tag @s add cursed_dagger",
+						"/effect @s speed 3 6 true",
+						"/effect @s invisibility 3 1 false"
+					]
+				}
+			}
+		},
+		"components": {
+			"minecraft:durability": {
+				"max_durability": 300
+			},
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"rev:red_dusk_dagger"
+						],
+						"repair_amount": 100
+					}
+				]
+			},
+			"minecraft:hand_equipped": true,
+			"minecraft:foil": true,
+			"minecraft:damage": 1,
+			"minecraft:weapon": {},
+			"minecraft:icon": {
+				"texture": "rev_cursed_dagger"
+			},
+			"minecraft:on_use": {
+				"on_use": {
+					"event": "rev:dark"
+				}
+			},
+			"minecraft:cooldown": {
+				"category": "dagger",
+				"duration": 30
+			}
+		}
+	}
+}
